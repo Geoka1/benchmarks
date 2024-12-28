@@ -1,7 +1,7 @@
 Starting VPS audit...
 [0;34m[1mVPS Security Audit Tool[0m
 [0;90mhttps://github.com/vernu/vps-audit[0m
-[0;90mStarting audit at Sat Dec 28 01:59:53 AM EET 2024[0m
+[0;90mStarting audit at Sat Dec 28 02:00:06 AM EET 2024[0m
 
 
 [0;34m[1mSystem Information[0m
@@ -14,7 +14,7 @@ Starting VPS audit...
 [1mTotal Memory:[0m 30Gi
 [1mTotal Disk Space:[0m 469G
 [1mPublic IP:[0m 62.1.20.202
-[1mLoad Average:[0m 0.75, 0.70, 0.57
+[1mLoad Average:[0m 0.65, 0.68, 0.57
 
 [0;34m[1mSecurity Audit Results[0m
 System Uptime: up 9 hours, 13 minutes (since 2024-12-27 16:46:24)
@@ -32,12 +32,12 @@ ERROR: You need to be root to run this script
 [0;31m[FAIL][0m Port Security [0;90m- High exposure (Total: 6, Public: 6 accessible ports): 22,53,631,6443,6463,38587[0m
 [0;32m[PASS][0m Disk Usage [0;90m- Healthy disk space available (9% used - Used: 40G of 469G, Available: 405G)[0m
 [1;33m[WARN][0m Memory Usage [0;90m- Moderate memory usage (58% used - Used: 17Gi of 30Gi, Available: 12Gi)[0m
-[0;32m[PASS][0m CPU Usage [0;90m- Healthy CPU usage (0% used - Active: 0%, Idle: 98%, Load: 0.75, Cores: 16)[0m
+[0;32m[PASS][0m CPU Usage [0;90m- Healthy CPU usage (0% used - Active: 0%, Idle: 99%, Load: 0.65, Cores: 16)[0m
 grep: /etc/sudoers: Permission denied
 [0;31m[FAIL][0m Sudo Logging [0;90m- Sudo commands are not being logged - reduces audit capability[0m
 [0;31m[FAIL][0m Password Policy [0;90m- Weak password policy - passwords may be too simple[0m
 [1;33m[WARN][0m SUID Files [0;90m- Found 11 SUID files outside standard locations - verify if legitimate[0m
 
-VPS audit complete. Full report saved to vps-audit-report-20241228_015953.txt
-Review vps-audit-report-20241228_015953.txt for detailed recommendations.
-VPS audit completed successfully. Output saved to '' and console log to '/home/geoka/Desktop/geoka_bench/benchmarks/vps-audit/outputs/vps-audit-console.log'.
+VPS audit complete. Full report saved to vps-audit-negate-report-20241228_020006.txt
+Review vps-audit-negate-report-20241228_020006.txt for detailed recommendations.
+VPS audit completed successfully. Output saved to '' and console log to '/home/geoka/Desktop/geoka_bench/benchmarks/vps-audit-negate/outputs/vps-audit-negate-console.log'.

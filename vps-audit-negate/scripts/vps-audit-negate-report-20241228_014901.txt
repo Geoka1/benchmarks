@@ -1,0 +1,34 @@
+VPS Security Audit Tool
+https://github.com/vernu/vps-audit
+Starting audit at Sat Dec 28 01:49:01 AM EET 2024
+================================
+
+System Information
+================================
+Hostname: geoka-ubuntu
+Operating System: Ubuntu 24.04.1 LTS
+Kernel Version: 6.8.0-51-generic
+Uptime: up 9 hours, 2 minutes (since 2024-12-27 16:46:24)
+CPU Model: AMD Ryzen 7 9700X 8-Core Processor
+CPU Cores: 16
+Total Memory: 30Gi
+Total Disk Space: 469G
+Public IP: 62.1.20.202
+Load Average: 0.44, 0.43, 0.44
+
+
+Security Audit Results
+================================
+
+System Uptime Information:
+Current uptime: up 9 hours, 2 minutes
+System up since: 2024-12-27 16:46:24
+
+[PASS] System Restart - No restart required
+
+[FAIL] SSH Root Login - Root login is currently allowed - this is a security risk. Disable it in /etc/ssh/sshd_config
+
+[FAIL] SSH Password Auth - Password authentication is enabled - consider using key-based authentication only
+
+[WARN] SSH Port - Using default port 22 - consider changing to a non-standard port for security by obscurity
+
