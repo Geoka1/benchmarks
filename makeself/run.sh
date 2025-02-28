@@ -5,6 +5,7 @@ BASE_DIR="$(dirname "$(readlink -f "$0")")"
 TESTS_DIR="${BASE_DIR}/makeself/test"
 LOGFILE="${BASE_DIR}/run_results.log"
 BENCHMARK_SHELL="${BENCHMARK_SHELL:-bash}"
+export BENCHMARK_CATEGORY="makeself"
 
 echo "Starting test execution..." > "${LOGFILE}"
 
@@ -14,11 +15,10 @@ for test_script in "${TESTS_DIR}"/*/*.sh; do
     test_log="${test_dir}/test_results.log"
 
     echo "Running test: ${test_name}" >> "${LOGFILE}"
-    if "${BENCHMARK_SHELL}" "${test_script}" >> "${test_log}" 2>&1; then
-        echo "PASS: ${test_name}" >> "${LOGFILE}"
-    else
-        echo "FAIL: ${test_name}" >> "${LOGFILE}"
-    fi
+    export BENCHMARK_SCRIPT="$(realpath "$test_script")"
+    { time "${BENCHMARK_SHELL}" "${test_script}" >> "${test_log}" 2>&1; } 2>> "${test_log}" \
+        && echo "PASS: ${test_name}" >> "${LOGFILE}" \
+        || echo "FAIL: ${test_name}" >> "${LOGFILE}"
 done
 
 echo "Test execution completed. Results in ${LOGFILE}"

@@ -1,4 +1,10 @@
 {
+    "aurpkg": {
+        "scripts": ["aurpkg/scripts/*.sh"]
+    },
+    "bio": {
+        "scripts": ["bio/scripts/*.sh"]
+    },
     "covid-mts": {
         "scripts": ["covid-mts/scripts/*.sh"]
     },
@@ -24,10 +30,7 @@
         "scripts": ["sklearn/scripts/run.sh"]
     },
     "riker": {
-        "scripts": ["riker/scripts/*/build.sh"]
-    },
-    "uniq-ips": {
-        "scripts": ["uniq-ips/scripts/run.sh"]
+        "scripts": ["riker/scripts/*/run.sh"]
     },
     "unix50": {
         "scripts": ["unix50/scripts/*.sh"]
@@ -44,11 +47,5 @@
     },
     "vps-audit-negate": {
         "scripts": ["vps-audit-negate/scripts/*.sh"]
-    },
-    "bio": {
-	"scripts": ["bio/scripts/bio.sh"]
-    },
-    "aurpkg": {
-	"scripts": ["aurpkg/scripts/pacaur.sh"]
     }
 }

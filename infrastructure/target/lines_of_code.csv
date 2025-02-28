@@ -51,11 +51,19 @@ nlp/scripts/words_no_vowels.sh,10
 oneliners/scripts/bi-gram.aux.sh,61
 oneliners/scripts/bi-grams.sh,9
 oneliners/scripts/diff.sh,10
+<<<<<<< HEAD
 oneliners/scripts/icfp-spell.sh,5
 oneliners/scripts/nfa-regex.sh,2
 oneliners/scripts/set-diff.sh,11
 oneliners/scripts/sort-sort.sh,2
 oneliners/scripts/sort.sh,2
+=======
+oneliners/scripts/nfa-regex.sh,2
+oneliners/scripts/run.sh,1
+oneliners/scripts/set-diff.sh,11
+oneliners/scripts/sort.sh,2
+oneliners/scripts/sort-sort.sh,2
+>>>>>>> dyn-systems
 oneliners/scripts/spell.sh,11
 oneliners/scripts/top-n.sh,2
 oneliners/scripts/uniq-ips.sh,2
@@ -65,10 +73,16 @@ riker/scripts/memcached/build.sh,15
 riker/scripts/redis/build.sh,20
 riker/scripts/sqlite/build.sh,41
 riker/scripts/vim/build.sh,23
+<<<<<<< HEAD
 riker/scripts/xz-clang/build.sh,19
 riker/scripts/xz/build.sh,19
 sklearn/scripts/run.sh,50
 unix50/scripts/1.sh,2
+=======
+riker/scripts/xz/build.sh,19
+riker/scripts/xz-clang/build.sh,19
+sklearn/scripts/run.sh,50
+>>>>>>> dyn-systems
 unix50/scripts/10.sh,2
 unix50/scripts/11.sh,2
 unix50/scripts/12.sh,2
@@ -79,7 +93,11 @@ unix50/scripts/16.sh,2
 unix50/scripts/17.sh,2
 unix50/scripts/18.sh,2
 unix50/scripts/19.sh,2
+<<<<<<< HEAD
 unix50/scripts/2.sh,2
+=======
+unix50/scripts/1.sh,2
+>>>>>>> dyn-systems
 unix50/scripts/20.sh,2
 unix50/scripts/21.sh,2
 unix50/scripts/22.sh,1
@@ -90,7 +108,11 @@ unix50/scripts/26.sh,2
 unix50/scripts/27.sh,1
 unix50/scripts/28.sh,2
 unix50/scripts/29.sh,2
+<<<<<<< HEAD
 unix50/scripts/3.sh,2
+=======
+unix50/scripts/2.sh,2
+>>>>>>> dyn-systems
 unix50/scripts/30.sh,2
 unix50/scripts/31.sh,2
 unix50/scripts/32.sh,2
@@ -98,6 +120,10 @@ unix50/scripts/33.sh,2
 unix50/scripts/34.sh,2
 unix50/scripts/35.sh,2
 unix50/scripts/36.sh,2
+<<<<<<< HEAD
+=======
+unix50/scripts/3.sh,2
+>>>>>>> dyn-systems
 unix50/scripts/4.sh,2
 unix50/scripts/5.sh,2
 unix50/scripts/6.sh,2
