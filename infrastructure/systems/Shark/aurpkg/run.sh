@@ -13,5 +13,5 @@ export BENCHMARK_SCRIPT="$(realpath "$script")"
 export BENCHMARK_INPUT_FILE="$(realpath "$IN")"
 
 echo "$script"
-time $BENCHMARK_SHELL "$script" "$IN" "$OUT"
+$BENCHMARK_SHELL "$script" "$IN" "$OUT"
 echo "$?"
