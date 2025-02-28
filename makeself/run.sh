@@ -16,7 +16,7 @@ for test_script in "${TESTS_DIR}"/*/*.sh; do
 
     echo "Running test: ${test_name}" >> "${LOGFILE}"
     export BENCHMARK_SCRIPT="$(realpath "$test_script")"
-    { time "${BENCHMARK_SHELL}" "${test_script}" >> "${test_log}" 2>&1; } 2>> "${test_log}" \
+    {"${BENCHMARK_SHELL}" "${test_script}" >> "${test_log}" 2>&1; } 2>> "${test_log}" \
         && echo "PASS: ${test_name}" >> "${LOGFILE}" \
         || echo "FAIL: ${test_name}" >> "${LOGFILE}"
 done

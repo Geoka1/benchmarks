@@ -7,7 +7,6 @@ mkdir -p ${OUT}
 
 script="./scripts/pacaur.sh"
 
-BENCHMARK_SHELL=${BENCHMARK_SHELL:-bash}
 export BENCHMARK_CATEGORY="aurpkg"
 export BENCHMARK_SCRIPT="$(realpath "$script")"
 export BENCHMARK_INPUT_FILE="$(realpath "$IN")"
@@ -15,5 +14,5 @@ export BENCHMARK_INPUT_FILE="$(realpath "$IN")"
 # Switch to user "user" to avoid permission issues
 
 echo "$script"
-time $BENCHMARK_SHELL "$script" "$IN" "$OUT"
+$BENCHMARK_SHELL "$script" "$IN" "$OUT"
 echo "$?"
