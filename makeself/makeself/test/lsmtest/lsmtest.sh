@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 set -eu
 THIS="$(readlink -f "$0")"
 THISDIR="$(dirname "${THIS}")"
