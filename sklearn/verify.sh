@@ -5,9 +5,5 @@
 # run the Python script
 python3 verify.py
 
-# check if the script ran successfully
-if [ $? -eq 0 ]; then
-  echo "verify.py ran successfully."
-else
-  echo "verify.py encountered an error."
-fi
+# check the exit code
+echo "sklearn $?"

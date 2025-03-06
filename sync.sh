@@ -7,8 +7,8 @@ mkdir -p /benchmarks/temp
 
 cd /benchmarks/temp
 git clone https://github.com/Geoka1/benchmarks.git
-git switch feb
 cd benchmarks
+git switch feb
 
 MODIFIED_SUITE_BASE="/benchmarks/temp/benchmarks"
 

@@ -27,4 +27,12 @@ RUN useradd -m user && \
     echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     chown -R user:user /benchmarks
 
-CMD ["bash"]
+RUN cd /benchmarks && \
+    for benchmark in */; do \
+        if [ -d "$benchmark" ] && [[ "$benchmark" != "infrastructure" && "$benchmark" != "temp" ]]; then \
+            echo "Running benchmark: $benchmark"; \
+            cd "$benchmark" && ./main.sh --min || echo "Failed to run $benchmark"; \
+        fi; \
+    done
+
+ENTRYPOINT ["bash"]
