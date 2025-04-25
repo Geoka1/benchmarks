@@ -112,7 +112,7 @@ IO per input byte: 4.615032 bytes/byte
 Time in Shell: 0.00 sec
 Time in Commands: 6.68 sec
 ```
-Per-input-byte numbers are computed automatically: if `BENCHMARK_INPUT_FILE` points to a file or a directory, the harness figures out its byte size.
+Per-input-byte numbers are computed automatically: if `BENCHMARK_INPUT_FILE` points to a file or a directory, the harness figures out its byte size. For more accurate analysis, please run inside a docker container.
 
 Local (`--bare`) and Docker-based stats share the exact same format, so they aggregate seamlessly.
 
