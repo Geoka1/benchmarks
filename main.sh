@@ -78,9 +78,10 @@ main() {
             #!TODO check why this is happening
 
             echo "[*] Running dynamic resource analysis for $BENCHMARK"
-            sudo apt-get install -y autoconf automake libtool build-essential cloc
-            pip install --break-system-packages -r "$REPO_TOP/infrastructure/requirements.txt"
-
+            if ((i == 1)); then
+                sudo apt-get install -y autoconf automake libtool build-essential cloc
+                pip install --break-system-packages -r "$REPO_TOP/infrastructure/requirements.txt"
+            fi
             mkdir -p "$REPO_TOP/infrastructure/target/process-logs"
             mkdir -p "$REPO_TOP/infrastructure/target/backup-process-logs"
             find "$REPO_TOP/infrastructure/target/process-logs" -type f \
@@ -103,17 +104,17 @@ main() {
         elif [[ "$measure_resources" == true && "$run_locally" == true ]]; then
             echo "Running local resource monitoring for $BENCHMARK"
             interval=0.1
+            if ((i == 1)); then
+                if ! command -v pidstat &>/dev/null; then
+                    echo "Installing pidstat..."
+                    sudo apt-get update && sudo apt-get install -y sysstat
+                fi
 
-            if ! command -v pidstat &>/dev/null; then
-                echo "Installing pidstat..."
-                sudo apt-get update && sudo apt-get install -y sysstat
+                if ! command -v /usr/bin/time &>/dev/null; then
+                    echo "Installing /usr/bin/time..."
+                    sudo apt-get update && sudo apt-get install -y time
+                fi
             fi
-
-            if ! command -v /usr/bin/time &>/dev/null; then
-                echo "Installing /usr/bin/time..."
-                sudo apt-get update && sudo apt-get install -y time
-            fi
-
             mkdir -p logs
             pidstat_log="logs/${BENCHMARK}.pidstat"
             io_log="logs/${BENCHMARK}.io"
@@ -206,11 +207,12 @@ EOF
             echo "Saved local stats to $stats_file"
 
         elif $measure_time; then
-            if ! command -v /usr/bin/time &>/dev/null; then
-                echo "Installing /usr/bin/time and gawk..."
-                sudo apt-get update && sudo apt-get install -y time gawk
+            if ((i == 1)); then
+                if ! command -v /usr/bin/time &>/dev/null; then
+                    echo "Installing /usr/bin/time and gawk..."
+                    sudo apt-get update && sudo apt-get install -y time gawk
+                fi
             fi
-
             echo "Timing benchmark: $BENCHMARK  (run #$i)"
 
             time_val_file="${BENCHMARK}_time_run${i}.val"
@@ -239,8 +241,9 @@ EOF
         # Verify output
         ./verify.sh "${args[@]}" >"$BENCHMARK.hash" || error "Failed to verify output for $BENCHMARK"
 
+        rm -rf $REPO_TOP/$BENCHMARK/outputs
         # Cleanup outputs
-        if ((i == runs)); then
+        if [[ "$BENCHMARK" == "riker" ]]; then
             ./cleanup.sh "${args[@]}"
         fi
 
