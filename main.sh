@@ -105,6 +105,16 @@ main() {
             main_args+=("$1")
             shift
             ;;
+        --shark)
+            sys="shark"
+            main_args+=("$1")
+            shift
+            ;;
+        --parallel)
+            sys="parallel"
+            main_args+=("$1")
+            shift
+            ;;
         *)
             if [[ "$1" != -* ]]; then
                 BENCHMARK="$(basename "$1")"
@@ -145,6 +155,12 @@ main() {
     shell_safe=${shell_word//[^A-Za-z0-9_.-]/_}
     echo "Using shell: $KOALA_SHELL"
     stats_prefix="${BENCHMARK}_${shell_safe}_stats"
+    if [[ "$sys" == "shark" ]]; then
+        stats_prefix="${BENCHMARK}_${shell_safe}_shark_stats"
+    fi
+    if [[ "$sys" == "parallel" ]]; then
+        stats_prefix="${BENCHMARK}_${shell_safe}_parallel_stats"
+    fi
     time_values=()
     stats_files=()
 
