@@ -45,14 +45,18 @@ scripts_inputs=(
 "35;11"
 "36;11"
 )
-
+jobs=$(nproc)
+export jobs
 suffix=""
 if [[ " $* " == *" --small "* ]]; then
     suffix="_30M"
+    export BLOCK_SIZE=$((3000000/jobs))
 elif [[ " $* " == *" --min "* ]]; then
     suffix=""
+    export BLOCK_SIZE=$((1000000/jobs))
 else
     suffix="_3G"
+    export BLOCK_SIZE=$((3000000000/jobs))
 fi
 
 echo "executing unix50 $(date)"

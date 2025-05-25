@@ -6,7 +6,7 @@ input_dir="${eval_dir}/inputs"
 outputs_dir="${eval_dir}/outputs"
 scripts_dir="${eval_dir}/scripts"
 export LC_ALL=C
-
+export MAX_PROCS=$(nproc)
 suffix=""
 for arg in "$@"; do
     if [ "$arg" = "--small" ]; then
@@ -22,6 +22,9 @@ done
 input_file="$input_dir/in$suffix.csv"
 output_scoped="$outputs_dir/outputs$suffix"
 mkdir -p "$output_scoped"
+
+lines=$(wc -l < "$input_file")
+export chunk_size=$(( (lines + MAX_PROCS - 1) / MAX_PROCS ))
 
 KOALA_SHELL="${KOALA_SHELL:-bash}"
 export KOALA_SHELL

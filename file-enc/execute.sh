@@ -22,7 +22,7 @@ done
 
 input_pcaps="$input_dir/pcaps_$size"
 
-
+export MAX_PROCS=$(nproc)
 KOALA_SHELL=${KOALA_SHELL:-bash}
 
 BENCHMARK_CATEGORY="file-enc"

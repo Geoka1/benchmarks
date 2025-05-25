@@ -24,7 +24,7 @@ for arg in "$@"; do
         break
     fi
 done
-
+export MAX_PROCS=$(nproc)
 KOALA_SHELL=${KOALA_SHELL:-bash}
 export BENCHMARK_CATEGORY="media-conv"
  
@@ -45,4 +45,14 @@ BENCHMARK_SCRIPT="$(realpath "$scripts_dir/to_mp3.sh")"
 export BENCHMARK_SCRIPT
 
 $KOALA_SHELL "$scripts_dir/to_mp3.sh" "$to_mp3_input" "$outputs_dir/to_mp3$suffix" > "$outputs_dir/to_mp3$suffix.log"
+echo $?
+
+echo "thumbnail_generation"
+BENCHMARK_INPUT_FILE="$(realpath "$img_convert_input")"
+export BENCHMARK_INPUT_FILE
+
+BENCHMARK_SCRIPT="$(realpath "$scripts_dir/thumbnail_generation.sh")"
+export BENCHMARK_SCRIPT
+mkdir -p "$outputs_dir/thumbnail$suffix"
+$KOALA_SHELL "$scripts_dir/thumbnail_generation.sh" "$img_convert_input" "$outputs_dir/thumbnail$suffix" > "$outputs_dir/thumbnail$suffix.log"
 echo $?
